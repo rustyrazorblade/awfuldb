@@ -7,17 +7,16 @@ internal class DBTest {
     fun put() {
         var db = DB()
 
-        var key = "key".toByteArray()
-
-
-        var value = "value".toByteArray()
+        var key = ByteString.copyFromUtf8("key")
+        var value = ByteString.copyFromUtf8("value")
 
         db.put(key, value)
 
-        var key2 = "test".toByteArray()
+        var key2 = ByteString.copyFromUtf8("key")
         val tmp = db.get(key2)
 
-        assertNotNull(tmp)
+        assertEquals(value, tmp)
+
     }
 
     @org.junit.jupiter.api.Test
