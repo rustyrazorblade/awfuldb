@@ -30,6 +30,6 @@ fun main(args: Array<String>) {
     if(response2.value == value) {
         println("Got expected value")
     } else {
-        println("Something fi")
+        println("Something fishy...")
     }
 }

@@ -2,7 +2,6 @@ package com.rustyrazorblade.awfuldb.server
 
 import com.google.protobuf.ByteString
 
-
 class DB {
     private var data : MutableMap<ByteString, ByteString> = HashMap()
 
