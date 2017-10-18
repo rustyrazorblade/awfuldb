@@ -11,6 +11,6 @@ fun main(args: Array<String>) {
     val s = ServerBuilder.forPort(port).addService(server).build()
     var tmp = s.start()
 
-    println("Server started, listening on " + port);
+    println("Server started, listening on " + port)
     tmp.awaitTermination()
 }
