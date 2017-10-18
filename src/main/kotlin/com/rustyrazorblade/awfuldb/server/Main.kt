@@ -1,6 +1,5 @@
 package com.rustyrazorblade.awfuldb.server
 
-import io.grpc.Server as GServer
 import io.grpc.ServerBuilder
 
 fun main(args: Array<String>) {
@@ -11,6 +10,7 @@ fun main(args: Array<String>) {
     val server = Server()
     val s = ServerBuilder.forPort(port).addService(server).build()
     var tmp = s.start()
+
     println("Server started, listening on " + port);
     tmp.awaitTermination()
 }
