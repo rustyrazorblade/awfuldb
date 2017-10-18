@@ -1,19 +1,18 @@
 package com.rustyrazorblade.awfuldb.server
 
-import com.google.protobuf.ByteString
 import com.rustyrazorblade.awfuldb.AwfulServer
 import com.rustyrazorblade.awfuldb.AwfulServer.PutResponse
 import com.rustyrazorblade.awfuldb.AwfulServiceGrpc
 import io.grpc.stub.StreamObserver
 
-class Server() : AwfulServiceGrpc.AwfulServiceImplBase() {
+class Server : AwfulServiceGrpc.AwfulServiceImplBase() {
     private var db = DB()
 
     override fun putValue(request: AwfulServer.PutRequest?, responseObserver: StreamObserver<PutResponse>?) {
 
         var success = false
 
-        if (request?.key != null && request?.value != null) {
+        if (request?.key != null && request.value != null) {
             db.put(request.key, request.value)
             success = true
         }
@@ -40,6 +39,4 @@ class Server() : AwfulServiceGrpc.AwfulServiceImplBase() {
         }
         responseObserver?.onCompleted()
     }
-
-
 }
