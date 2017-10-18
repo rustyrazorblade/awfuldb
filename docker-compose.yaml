@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  python:
+    build: .
+    volumes:
+      - ./build:/root/build
+      - ./src/proto:/root/proto

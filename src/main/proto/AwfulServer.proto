@@ -1,0 +1,27 @@
+syntax = "proto2";
+
+package com.rustyrazorblade.awfuldb;
+option java_outer_classname = "AwfulServer";
+
+service AwfulService {
+    rpc PutValue(PutRequest) returns (PutResponse);
+    rpc GetValue(GetRequest) returns (GetResponse);
+}
+
+message PutRequest {
+    required bytes key = 1;
+    required bytes value = 2;
+}
+
+message PutResponse {
+    required bool success = 1;
+    optional string error = 2;
+}
+
+message GetRequest {
+    required bytes key = 1;
+}
+
+message GetResponse {
+    required bytes value = 1;
+}
