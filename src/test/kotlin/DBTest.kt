@@ -1,9 +1,10 @@
 import com.google.protobuf.ByteString
 import com.rustyrazorblade.awfuldb.server.DB
-import org.junit.jupiter.api.Assertions.*
+import org.junit.Test
+import org.junit.Assert.assertEquals
 
 internal class DBTest {
-    @org.junit.jupiter.api.Test
+    @Test
     fun put() {
         var db = DB()
 
@@ -19,7 +20,7 @@ internal class DBTest {
 
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     fun testByteString() {
         var k1 = ByteString.copyFromUtf8("test")
         var k2 = ByteString.copyFromUtf8("test")
