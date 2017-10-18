@@ -13,8 +13,8 @@ fun main(args: Array<String>) {
 
     var stub = AwfulServiceGrpc.newBlockingStub(channel)
 
-    val key = ByteString.copyFrom("test", Charset.defaultCharset())
-    val value = ByteString.copyFrom("value", Charset.defaultCharset())
+    val key = ByteString.copyFromUtf8("test")
+    val value = ByteString.copyFromUtf8("value")
 
     val put = AwfulServer.PutRequest.newBuilder().setKey(key).setValue(value).build()
 
@@ -27,4 +27,9 @@ fun main(args: Array<String>) {
     val response2 = stub.getValue(get)
 
     println("Get($key): $response2")
+    if(response2.value == value) {
+        println("Got expected value")
+    } else {
+        println("Something fi")
+    }
 }

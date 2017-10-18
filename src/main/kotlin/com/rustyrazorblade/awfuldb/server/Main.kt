@@ -3,9 +3,6 @@ package com.rustyrazorblade.awfuldb.server
 import io.grpc.Server as GServer
 import io.grpc.ServerBuilder
 
-import com.rustyrazorblade.awfuldb.server.Server
-import com.rustyrazorblade.awfuldb.server.DB
-
 fun main(args: Array<String>) {
     println("Starting this awful piece of garbage.")
 
