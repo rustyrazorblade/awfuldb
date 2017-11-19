@@ -2,6 +2,7 @@ import com.google.protobuf.ByteString
 import com.rustyrazorblade.awfuldb.server.DB
 import org.junit.Test
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 
 internal class DBTest {
     @Test
@@ -14,7 +15,7 @@ internal class DBTest {
         db.put(key, value)
 
         var key2 = ByteString.copyFromUtf8("key")
-        val tmp = db.get(key2)
+        val tmp = db.get(key2).get()
 
         assertEquals(value, tmp)
 

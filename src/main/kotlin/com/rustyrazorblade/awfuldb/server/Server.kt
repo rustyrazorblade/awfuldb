@@ -30,9 +30,9 @@ class Server : AwfulServiceGrpc.AwfulServiceImplBase() {
         if(key != null) {
             val value = db.get(key)
 
-            if(value != null) {
+            if(value.isPresent ) {
                 println("data found")
-                response.value = value
+                response.value = value.get()
             } else {
             }
             responseObserver?.onNext(response.build())
