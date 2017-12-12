@@ -29,12 +29,16 @@ class DB {
     }
 
     fun put(key: String, value: String) {
-        // validate the JSON
-        val parser = jsonFactory.createParser(value)
-        val mapper = ObjectMapper()
-        val tree = mapper.readTree(value)
+        try {
+            // validate the JSON
+            val parser = jsonFactory.createParser(value)
+            val mapper = ObjectMapper()
+            val tree = mapper.readTree(value)
 
-        data.put(key, tree)
+            val put = data.put(key, tree)
+        } catch (e: Exception) {
+            println("Meh, fail $e")
+        }
     }
 
     fun get(key: String) : Optional<String> {

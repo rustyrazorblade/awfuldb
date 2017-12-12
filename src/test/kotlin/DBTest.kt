@@ -10,11 +10,11 @@ internal class DBTest {
         var db = DB()
 
         var key = "test"
-        var value = "{'data': 'value'}"
+        var value = "{\"data\":\"value\"}"
 
         db.put(key, value)
 
-        var key2 = "key"
+        var key2 = "test"
         val tmp = db.get(key2).get()
 
         assertEquals(value, tmp)

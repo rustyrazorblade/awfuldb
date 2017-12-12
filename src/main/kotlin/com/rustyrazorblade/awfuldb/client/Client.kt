@@ -14,7 +14,7 @@ fun main(args: Array<String>) {
     var stub = AwfulServiceGrpc.newBlockingStub(channel)
 
     val key = "test"
-    val value = "value"
+    val value = "{\"key\":\"value\"}"
 
     val put = AwfulServer.PutRequest.newBuilder().setKey(key).setValue(value).build()
 
