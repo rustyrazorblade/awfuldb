@@ -21,18 +21,15 @@ Goals:
  */
 class DB {
     private var data : MutableMap<String, JsonNode> = ConcurrentHashMap()
-    private var jsonFactory : JsonFactory
+    private var mapper = ObjectMapper()
 
     init {
         println("Creating a new DB")
-        jsonFactory = JsonFactory()
     }
 
     fun put(key: String, value: String) {
         try {
             // validate the JSON
-            val parser = jsonFactory.createParser(value)
-            val mapper = ObjectMapper()
             val tree = mapper.readTree(value)
 
             val put = data.put(key, tree)

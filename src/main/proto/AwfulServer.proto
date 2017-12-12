@@ -6,6 +6,7 @@ option java_outer_classname = "AwfulServer";
 service AwfulService {
     rpc PutValue(PutRequest) returns (PutResponse);
     rpc GetValue(GetRequest) returns (GetResponse);
+    rpc Select(SelectRequest) returns (SelectResponse);
 }
 
 message PutRequest {
@@ -27,3 +28,11 @@ message GetResponse {
 }
 
 
+message SelectRequest {
+    required string format = 1;
+    required string predicates = 2;
+}
+
+message SelectResponse {
+    required string response = 1;
+}

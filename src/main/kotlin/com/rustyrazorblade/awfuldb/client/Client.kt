@@ -6,8 +6,37 @@ import com.rustyrazorblade.awfuldb.AwfulServiceGrpc
 import io.grpc.ManagedChannelBuilder
 import java.nio.charset.Charset
 
+
+class Client {
+    fun connect(address: String, port: Int) {
+        var channel = ManagedChannelBuilder.forAddress(address, port).usePlaintext(true).build()
+        var stub = AwfulServiceGrpc.newBlockingStub(channel)
+    }
+
+    fun put(key: String, value: String) {
+
+    }
+
+    fun get(key: String) {
+
+    }
+
+    fun select(key: String) {
+
+    }
+
+    fun delete(key: String) {
+        
+    }
+
+
+}
+
 fun main(args: Array<String>) {
     println("Running the test client.")
+
+    var client = Client()
+    client.connect("127.0.0.1", 5000)
 
     var channel = ManagedChannelBuilder.forAddress("localhost", 5000).usePlaintext(true).build()
 
@@ -32,4 +61,6 @@ fun main(args: Array<String>) {
     } else {
         println("Something fishy...")
     }
+
+
 }
