@@ -13,8 +13,8 @@ fun main(args: Array<String>) {
 
     var stub = AwfulServiceGrpc.newBlockingStub(channel)
 
-    val key = ByteString.copyFromUtf8("test")
-    val value = ByteString.copyFromUtf8("value")
+    val key = "test"
+    val value = "value"
 
     val put = AwfulServer.PutRequest.newBuilder().setKey(key).setValue(value).build()
 

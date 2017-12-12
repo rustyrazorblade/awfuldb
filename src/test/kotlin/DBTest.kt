@@ -9,23 +9,16 @@ internal class DBTest {
     fun put() {
         var db = DB()
 
-        var key = ByteString.copyFromUtf8("key")
-        var value = ByteString.copyFromUtf8("value")
+        var key = "test"
+        var value = "{'data': 'value'}"
 
         db.put(key, value)
 
-        var key2 = ByteString.copyFromUtf8("key")
+        var key2 = "key"
         val tmp = db.get(key2).get()
 
         assertEquals(value, tmp)
 
-    }
-
-    @Test
-    fun testByteString() {
-        var k1 = ByteString.copyFromUtf8("test")
-        var k2 = ByteString.copyFromUtf8("test")
-        assertEquals(k1, k2)
     }
 
 }

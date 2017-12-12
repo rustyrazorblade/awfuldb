@@ -9,8 +9,8 @@ service AwfulService {
 }
 
 message PutRequest {
-    required bytes key = 1;
-    required bytes value = 2;
+    required string key = 1;
+    required string value = 2;
 }
 
 message PutResponse {
@@ -19,11 +19,11 @@ message PutResponse {
 }
 
 message GetRequest {
-    required bytes key = 1;
+    required string key = 1;
 }
 
 message GetResponse {
-    required bytes value = 1;
+    required string value = 1;
 }
 
 
